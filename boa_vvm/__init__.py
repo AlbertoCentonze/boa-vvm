@@ -11,7 +11,7 @@ def load_partial_vvm(filename: str, version: str):
     abi = compiled_src[filename]["abi"]
     bytecode = compiled_src[filename]["bytecode"]
     bytecode = bytes.fromhex(bytecode[2:])
-    return VVMDeployer(abi, bytecode)
+    return VVMDeployer(abi, bytecode, filename=filename)
 
 
 boa.load_partial_vvm = load_partial_vvm

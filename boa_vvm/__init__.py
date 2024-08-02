@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from .VVMDeployer import VVMDeployer
+from .vvm_deployer import VVMDeployer
 import boa
 import vvm
 

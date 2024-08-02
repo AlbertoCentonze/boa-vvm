@@ -2,8 +2,9 @@ from boa.contracts.abi.abi_contract import ABIContractFactory
 from boa import Env
 from eth_abi import abi
 
+
 class VVMDeployer:
-    def __init__(self, abi, bytecode, filename=None, env:Env=None):
+    def __init__(self, abi, bytecode, filename=None, env: Env = None):
         self.env = env or Env.get_singleton()
         self.abi = abi
         self.types = next(iter([
@@ -17,10 +18,11 @@ class VVMDeployer:
 
     def deploy(self, *args):
         if len(args) != len(self.types):
-            raise ValueError(f"Expected {len(self.types)} arguments, got {len(args)}")
+            raise ValueError(
+                f"Expected {len(self.types)} arguments, got {len(args)}")
         encoded_args = abi.encode(self.types, args)
-        print(encoded_args)
-        address, _ = self.env.deploy_code(self.bytecode + encoded_args)
+        address, _ = self.env.deploy_code(
+            bytecode=self.bytecode + encoded_args)
         return self.factory.at(address)
 
     def __call__(self, *args):

@@ -9,7 +9,7 @@ compiler versions are installed through [Vyper Version Manager (vvm)](https://gi
 import boa
 import boa_vvm
 
-vvm_deployer = boa.load_partial_vvm("Counter.sol")
+vvm_deployer = boa.load_partial_vvm("foo.vy", "0.3.10")
 
 vvm_contract = vvm_deployer.deploy()
 
